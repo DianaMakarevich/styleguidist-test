@@ -5,7 +5,8 @@ const theme = require('./theme.js')
 module.exports = function override(config, env) {
   config = injectBabelPlugin(['import', { libraryName: 'antd', style: true }], config)
   config = rewireLess.withLoaderOptions({
-    modifyVars: theme
+    modifyVars: theme,
+    javascriptEnabled: true,
   })(config, env)
   return config
 }
